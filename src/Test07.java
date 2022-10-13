@@ -32,9 +32,7 @@ public class Test07 {
         }
         if(count1==count2&&count2==count3){
             int[] score = {count1, count2, count3};
-        }else if
-        int[] score = {count1, count2, count3};
-        Arrays.sort(score);
+        }
 
         }
 }
