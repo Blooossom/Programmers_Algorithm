@@ -1,31 +1,31 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.StringTokenizer;
 
 public class Test15 {
-    public static void main(String[] args) {
-        int[] arr = {10};
-        System.out.println(Arrays.toString(solution(arr)));
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        int[] arr = new int[T];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i <arr.length ; i++) {
+            arr[i]= Integer.parseInt(st.nextToken());
+        }
+        System.out.println(solution(arr));
     }
 
-    public static int[] solution(int[] arr) {
-        int[] answer = {};
+    public static ArrayList<Integer> solution(int[] arr) {
         ArrayList<Integer> list = new ArrayList<>();
         for (int j : arr) {
             list.add(j);
         }
-        Collections.sort(list);
-        list.remove(0);
-        Collections.reverse(list);
+        list.remove(Collections.min(list));
         if (list.size() == 0) {
-            answer=new int[1];
-            answer[0]=-1;
-        }else{
-            answer=new int[list.size()];
-            for (int i = 0; i <list.size(); i++) {
-                answer[i]=list.get(i);
-            }
+            list.add(-1);
         }
-        return answer;
+        return list;
     }
 }
