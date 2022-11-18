@@ -1,3 +1,5 @@
+package test31_40;
+
 import java.io.*;
 public class Test33 {
     public static void main(String[] args) throws IOException{
