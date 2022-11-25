@@ -1,37 +1,42 @@
 package Unsolved;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
 
-//시간초과
 public class Test34 {
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st=new StringTokenizer(br.readLine());
-        int num = Integer.parseInt(st.nextToken());
-        int lim = Integer.parseInt(st.nextToken());
-        int pow = Integer.parseInt(st.nextToken());
-        System.out.println(solution(num,lim,pow));
+        while (true){
+            String x = br.readLine();
+            if (x.equals("-1")){
+                break;
+            }
+            String y = br.readLine();
+            System.out.println(solution(x,y));
+        }
     }
-    public static int solution(int number, int limit, int power){
-        int answer = 0;
-        for (int i = 1; i <=number; i++) {
-            int count = 0;
-            for (int j = 1; j <=i; j++) {
-                if (i % j == 0) {
-                    count++;
+    public static String solution(String X, String Y){
+        String answer = "";
+        int[] xarr = new int[10];
+        int[] yarr = new int[10];
+        for (int i = 0; i <X.length(); i++) {
+            xarr[Character.getNumericValue(X.charAt(i))]++;
+        }
+        for (int i = 0; i <Y.length(); i++) {
+            yarr[Character.getNumericValue(Y.charAt(i))]++;
+        }
+        for (int i = yarr.length-1; i >=0; i--) {
+            if(xarr[i]!=0&&yarr[i]!=0){
+                for (int j = 0; j <Math.min(xarr[i],yarr[i]); j++) {
+                    answer = answer + i;
                 }
             }
-            if(count>limit){
-                count=power;
-            }
-            System.out.println(count);
-            answer+=count;
         }
-
+        if(answer.equals("")){
+            answer = "-1";
+        }
+        if(answer.charAt(0)=='0'&&answer.charAt(answer.length()-1)=='0'){
+            answer = "0";
+        }
         return answer;
     }
 }
