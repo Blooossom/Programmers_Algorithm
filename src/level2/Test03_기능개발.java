@@ -2,10 +2,8 @@ package level2;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
-public class Test03 {
+public class Test03_기능개발 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int[] pr = {95, 90, 99, 99, 80, 99};
